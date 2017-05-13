@@ -1,0 +1,104 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+body {
+	background: #f46b45;
+	background: -webkit-linear-gradient(to right, #eea849, #f46b45);
+	background: linear-gradient(to right, #eea849, #f46b45);
+}
+
+#input {
+	position:absolute;
+	resize:none;
+	top: 20%;
+	left: 4%;
+	font-weight:900;
+}
+
+#output {
+	position:absolute;
+	resize:none;
+	top: 20%;
+	right: 4%;
+	font-weight:900;
+}
+
+#arrow {
+	position: absolute;
+	color:white;
+	left: 48%;
+	top: 14%;
+	font-size: 10em;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 25%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  position: absolute;
+  top: 58%;
+  left: 37.5%;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+
+<script type="text/javascript">
+	function emojify() {
+		var input = document.getElementById("input").value.split(" ");
+		var output = document.getElementById("output");
+		
+		var newString = "";
+		
+		for (var i = 0; i < input.length; i++) {
+			newString += input[i] + " " + ((i < input.length-1) ? "👏 " : "");
+		}
+		
+		output.value = newString;
+		
+	}
+</script>
+
+</head>
+
+
+<body>
+	<textarea id="input" rows="20" cols="90" placeholder="YOUR NORMAL TEXT GOES HERE"></textarea>
+	<textarea id="output" rows="20" cols="90" placeholder="YOUR CLAPPED TEXT APPEARS HERE"></textarea>
+	<h1 id="arrow">&#187;</h1>
+	<button class="button" type="button" onclick="emojify()" style="vertical-align:middle"><span>CLAP 👏 THAT 👏 SENTENCE</span></button>
+</body>
+</html>
